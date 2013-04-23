@@ -1,0 +1,6 @@
+﻿<div>
+	<input type="text" ng-model="fruitName" />
+		<ul>
+			<li ng-repeat="fruit in fruits | filter:fruitName">{{fruit | uppercase}}</li>
+		</ul>
+</div>

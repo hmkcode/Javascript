@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html ng-app="firstModule">
+	<head>
+		<script src="angular.min.js"></script>
+	</head>
+	<body>
+	
+	<div ng-view></div>
+		<script>
+		
+			var firstModule = angular.module("firstModule",[]);
+			
+			firstModule.controller("FruitController", function ($scope){
+				$scope.fruits=['Apple','Banana','Watermelon','Peach'];
+			});
+			firstModule.config(function($routeProvider) {
+				$routeProvider
+					.when('/', 
+					{
+						templateUrl: 'view1.html', 
+						controller: "FruitController"
+					})
+					.when('/view2', 
+					{
+						templateUrl: 'view2.html', 
+						controller: ""
+					})
+					.otherwise({redirectTo: '/'});
+			});
+		</script>
+	</body>
+</html>
